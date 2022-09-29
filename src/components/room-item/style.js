@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ItemWrapper = styled.div`
-  width: 25%;
+  width: ${(props) => props.itemWidth};
   box-sizing: border-box;
   padding: 0 10px;
   margin-bottom: 30px;
@@ -41,6 +41,22 @@ export const ItemWrapper = styled.div`
 
     .price {
       margin: 8px 0;
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: ${(props) => props.theme.text.primaryColor};
+
+      .count {
+        margin: 0 2px 0 4px;
+      }
+
+      .MuiRating-decimal {
+        margin-right: -2px;
+      }
     }
   }
 `

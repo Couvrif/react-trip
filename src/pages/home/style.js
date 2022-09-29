@@ -8,11 +8,5 @@ export const HomeWrapper = styled.div`
     > div {
       margin-top: 30px;
     }
-
-    .content-list {
-      display: flex;
-      margin: 0 -8px;
-      flex-wrap: wrap;
-    }
   }
 `
