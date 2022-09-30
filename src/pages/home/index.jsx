@@ -2,29 +2,22 @@ import React, { memo, useEffect, useCallback, useState } from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { HomeWrapper } from './style'
 import HomeBanner from './cpn/home-banner'
+import { isEmptyO } from '@/utils'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import HomeSectionv1 from './cpn/home-section-v1'
-
-import SectionHeader from '@/components/section-header'
-import SectionTabs from '@/components/section-tabs'
-import SectionRooms from '@/components/section-rooms'
+import HomeSectionv2 from './cpn/home-section-v2'
 
 const Home = memo(() => {
-  const [tabName, setTabName] = useState('佛山')
-
-  const clickTabName = useCallback((name, index) => {
-    setTabName(name)
-  }, [])
 
   // 从redux中获取数据
-  const { goodPriceInfo, highScoreInfo, discountInfo, recommendInfo, longforInfo, plusInfo } = useSelector((state) => {
+  const { goodPriceInfo, highScoreInfo, discountInfo, hotRecommendInfo, longForInfo, plusInfo } = useSelector((state) => {
     console.log(state)
     return {
       goodPriceInfo: state.home.goodPriceInfo,
       highScoreInfo: state.home.highScoreInfo,
       discountInfo: state.home.discountInfo,
-      recommendInfo: state.home.recommendInfo,
-      longforInfo: state.home.longforInfo,
+      hotRecommendInfo: state.home.hotRecommendInfo,
+      longForInfo: state.home.longForInfo,
       plusInfo: state.home.plusInfo
     }
   }, shallowEqual)
@@ -35,27 +28,22 @@ const Home = memo(() => {
     dispatch(fetchHomeDataAction('xxx'))
   }, [dispatch])
 
-  const tabNameList = discountInfo?.dest_address.map((item) => item.name)
-
-  function test() {
-    console.log('fdafaf', goodPriceInfo, highScoreInfo, discountInfo, recommendInfo, longforInfo, plusInfo)
-  }
-
   return (
     <HomeWrapper>
       <HomeBanner></HomeBanner>
       <div className="content">
         {/* 折扣数据 */}
-        <div className="discount">
-          <SectionHeader title={discountInfo?.title} subtitle={discountInfo?.subtitle}></SectionHeader>
+        {/* <div className="discount">
+          <SectionHeader title={discountInfo.title} subtitle={discountInfo.subtitle}></SectionHeader>
           <SectionTabs tabNameList={tabNameList} tabClick={clickTabName}></SectionTabs>
-          <SectionRooms roomList={discountInfo?.dest_list?.[tabName]}></SectionRooms>
-        </div>
+          <SectionRooms roomList={discountInfo.dest_list?.[tabName]} itemWidth={'33.3%'}></SectionRooms>
+        </div> */}
 
-        <div onClick={test}>test</div>
+        {isEmptyO(discountInfo) && <HomeSectionv2 roomInfo={discountInfo}></HomeSectionv2>}
+        {isEmptyO(hotRecommendInfo) && <HomeSectionv2 roomInfo={hotRecommendInfo}></HomeSectionv2>}
 
-        <HomeSectionv1 roomInfo={goodPriceInfo}></HomeSectionv1>
-        <HomeSectionv1 roomInfo={highScoreInfo}></HomeSectionv1>
+        {isEmptyO(goodPriceInfo) && <HomeSectionv1 roomInfo={goodPriceInfo}></HomeSectionv1>}
+        {isEmptyO(highScoreInfo) && <HomeSectionv1 roomInfo={highScoreInfo}></HomeSectionv1>}
       </div>
     </HomeWrapper>
   )

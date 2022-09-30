@@ -33,7 +33,7 @@ const homeSlice = createSlice({
   name: 'home',
   initialState: {
     goodPriceInfo: {},
-    disCountInfo: {},
+    discountInfo: {},
     highScoreInfo: {},
     hotRecommendInfo: {},
     longForInfo: {},
@@ -44,7 +44,7 @@ const homeSlice = createSlice({
       state.goodPriceInfo = payload
     },
     changeDisCountAction(state, { payload }) {
-      state.disCountInfo = payload
+      state.discountInfo = payload
     },
     changeHighScoreAction(state, { payload }) {
       state.highScoreInfo = payload
