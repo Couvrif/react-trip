@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const TabWrapper = styled.div`
-  display: flex;
+  /* display: flex; */
   margin-bottom: 15px;
 
-  .tabItem{
+  .tabItem {
     box-sizing: border-box;
     flex-basis: 120px;
     flex-shrink: 0;
@@ -13,11 +13,11 @@ export const TabWrapper = styled.div`
     border-radius: 3px;
     font-size: 17px;
     text-align: center;
-    border: 0.5px solid #D8D8D8;
+    border: 0.5px solid #d8d8d8;
     white-space: nowrap;
     font-weight: bold;
     cursor: pointer;
-    ${props => props.theme.mixin.boxShadow};
+    ${(props) => props.theme.mixin.boxShadow};
 
     &:last-child {
       margin-right: 0;
@@ -25,7 +25,7 @@ export const TabWrapper = styled.div`
 
     &.active {
       color: #fff;
-      background-color: ${props => props.theme.color.secondaryColor};
+      background-color: ${(props) => props.theme.color.secondaryColor};
     }
   }
 `

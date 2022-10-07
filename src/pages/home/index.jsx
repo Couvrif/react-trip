@@ -6,9 +6,10 @@ import { isEmptyO } from '@/utils'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import HomeSectionv1 from './cpn/home-section-v1'
 import HomeSectionv2 from './cpn/home-section-v2'
+import HomeSectionv3 from './cpn/home-section-v3'
+import HomeLongFor from './cpn/home-longfor'
 
 const Home = memo(() => {
-
   // 从redux中获取数据
   const { goodPriceInfo, highScoreInfo, discountInfo, hotRecommendInfo, longForInfo, plusInfo } = useSelector((state) => {
     console.log(state)
@@ -42,8 +43,11 @@ const Home = memo(() => {
         {isEmptyO(discountInfo) && <HomeSectionv2 roomInfo={discountInfo}></HomeSectionv2>}
         {isEmptyO(hotRecommendInfo) && <HomeSectionv2 roomInfo={hotRecommendInfo}></HomeSectionv2>}
 
+        {isEmptyO(longForInfo) && <HomeLongFor roomInfo={longForInfo}></HomeLongFor>}
+
         {isEmptyO(goodPriceInfo) && <HomeSectionv1 roomInfo={goodPriceInfo}></HomeSectionv1>}
         {isEmptyO(highScoreInfo) && <HomeSectionv1 roomInfo={highScoreInfo}></HomeSectionv1>}
+        {isEmptyO(plusInfo) && <HomeSectionv3 roomInfo={plusInfo}></HomeSectionv3>}
       </div>
     </HomeWrapper>
   )

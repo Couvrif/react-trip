@@ -5,6 +5,7 @@ export const ItemWrapper = styled.div`
   box-sizing: border-box;
   padding: 0 10px;
   margin-bottom: 30px;
+  flex-shrink: 0;
   .inner {
     .cover {
       width: 100%;
