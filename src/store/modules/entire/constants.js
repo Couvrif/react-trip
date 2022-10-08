@@ -1,1 +1,3 @@
-export const TEST = 'TEST'
+export const CHANGETOTAL = 'CHANGETOTAL'
+export const CHANGEPAGE = 'CHANGEPAGE'
+export const CHANGEROOMLIST = 'CHANGEROOMLIST'
