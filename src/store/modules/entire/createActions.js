@@ -22,10 +22,19 @@ export const changeRoomListAction = (roomlist) => {
   }
 }
 
+export const changeLoadingAction = (isLoading) => {
+  return {
+    type: actionTypes.CHANGELOADING,
+    isLoading
+  }
+}
+
 export const fetchRoomListAction = () => {
   return async (dispatch, getState) => {
+    dispatch(changeLoadingAction(true))
     const currentPage = getState().entire.page
     const res = await getEntireRoomList(currentPage)
+    dispatch(changeLoadingAction(false))
     const { list, totalCount } = res
     dispatch(changeRoomListAction(list))
     dispatch(changeTotalAction(totalCount))

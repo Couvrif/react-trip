@@ -8,17 +8,64 @@ export const ItemWrapper = styled.div`
   flex-shrink: 0;
   .inner {
     .cover {
-      width: 100%;
       position: relative;
-      padding: 66.66% 1px 0;
-      overflow: hidden;
+      box-sizing: border-box;
+      padding: 66.66% 8px 0;
+      cursor: pointer;
 
-      img {
+      > img {
         width: 100%;
         height: 100%;
         position: absolute;
-        top: 0;
         left: 0;
+        top: 0;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+    }
+
+    .swiper {
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        .control {
+          /* 鼠标经过时显示，设置flex也可以 */
+          display: flex;
+        }
+      }
+
+      .control {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        /* 铺满容器，flex布局居中 */
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 9;
+
+        /* 箭头按钮设置线性渐变 */
+        .btn {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          color: #fff;
+          /* 设置宽高是为了给线性渐变显示 */
+          height: 100%;
+          width: 83px;
+          background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+
+          &.right {
+            background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+            justify-content: flex-end;
+          }
+        }
+
+        .left {
+        }
       }
     }
 

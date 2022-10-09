@@ -3,7 +3,8 @@ import * as actionTypes from './constants'
 const initialState = {
   page: 0,
   total: 0,
-  roomlist: []
+  roomlist: [],
+  isLoading: false
 }
 
 function reducer(state = initialState, action) {
@@ -14,6 +15,8 @@ function reducer(state = initialState, action) {
       return { ...state, total: action.total }
     case actionTypes.CHANGEROOMLIST:
       return { ...state, roomlist: action.roomlist }
+    case actionTypes.CHANGELOADING:
+      return { ...state, isLoading: action.isLoading }
     default:
       return state
   }

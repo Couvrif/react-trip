@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux'
 import { RoomWrapper } from './style'
 
 const EntireRooms = memo((props) => {
-  const { roomlist, total } = useSelector((state) => {
-    console.log(state)
+  const { roomlist, total, isLoading } = useSelector((state) => {
     return {
       roomlist: state.entire.roomlist,
-      total: state.entire.total
+      total: state.entire.total,
+      isLoading: state.entire.isLoading
     }
   })
   return (
@@ -20,6 +20,8 @@ const EntireRooms = memo((props) => {
           return <RoomItem itemData={item} itemWidth="20%" key={item.id}></RoomItem>
         })}
       </div>
+
+      {isLoading && <div className="cover"></div>}
     </RoomWrapper>
   )
 })
