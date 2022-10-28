@@ -9,12 +9,13 @@ import Indicator from '@/base-ui/indicator'
 import classNames from 'classnames'
 
 const RoomItem = memo((props) => {
-  const { itemData, itemWidth = '25%' } = props
+  const { itemData, itemWidth = '25%', handleClick } = props
   const [selectIndex, setSelectIndex] = useState(0)
 
   const sliderRef = useRef()
 
-  function clickNext(isRight = false) {
+  function clickNext(e,isRight = false) {
+    e.stopPropagation()
     isRight ? sliderRef.current.next() : sliderRef.current.prev()
     let newIndex = isRight ? selectIndex + 1 : selectIndex - 1
     const length = itemData.picture_urls.length
@@ -43,10 +44,10 @@ const RoomItem = memo((props) => {
         </Indicator>
       </div>
       <div className="control">
-        <div className="btn left" onClick={(e) => clickNext(false)}>
+        <div className="btn left" onClick={(e) => clickNext(e,false)}>
           <IconArrowLeft width="30" height="30"></IconArrowLeft>
         </div>
-        <div className="btn right" onClick={(e) => clickNext(true)}>
+        <div className="btn right" onClick={(e) => clickNext(e,true)}>
           <IconArrowRight width="30" height="30"></IconArrowRight>
         </div>
       </div>
@@ -65,8 +66,14 @@ const RoomItem = memo((props) => {
     </div>
   )
 
+  function goDetail(item) {
+    if (handleClick) {
+      handleClick(item)
+    }
+  }
+
   return (
-    <ItemWrapper verifyColor={itemData?.verify_info?.text_color || '#39576a'} itemWidth={itemWidth}>
+    <ItemWrapper verifyColor={itemData?.verify_info?.text_color || '#39576a'} itemWidth={itemWidth} onClick={e=>goDetail(itemData)}>
       <div className="inner">
         {itemData.picture_urls ? sliderElement : pictureElement}
         <div className="desc">{itemData.verify_info.messages.join(' . ')}</div>

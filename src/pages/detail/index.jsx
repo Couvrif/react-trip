@@ -1,7 +1,15 @@
-import React, { memo } from 'react'
+import React, { memo,useState } from 'react'
+import DetailInfo from './detail-info'
+import DetailPicture from './detail-picture'
+import { DetailWrapper } from './style'
 
 const Detail = memo(() => {
-  return <div>Detail</div>
+  return (
+    <DetailWrapper>
+      <DetailPicture></DetailPicture>
+      <DetailInfo></DetailInfo>
+    </DetailWrapper>
+  )
 })
 
 export default Detail
