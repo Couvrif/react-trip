@@ -19,7 +19,7 @@ const EntireRooms = memo((props) => {
   const navigate = useNavigate()
   const handleClick = useCallback(
     (item) => {
-      console.log('你第二个来',item)
+      console.log('你第二个来', item)
       dispatch(changeDetailInfoAction(item))
       navigate('/detail')
     },

@@ -7,7 +7,7 @@ const store = configureStore({
   reducer: {
     home: homeReducer,
     entire: entireReducer,
-    detail:detailReducer
+    detail: detailReducer
   }
 })
 

@@ -14,7 +14,7 @@ const RoomItem = memo((props) => {
 
   const sliderRef = useRef()
 
-  function clickNext(e,isRight = false) {
+  function clickNext(e, isRight = false) {
     e.stopPropagation()
     isRight ? sliderRef.current.next() : sliderRef.current.prev()
     let newIndex = isRight ? selectIndex + 1 : selectIndex - 1
@@ -44,10 +44,10 @@ const RoomItem = memo((props) => {
         </Indicator>
       </div>
       <div className="control">
-        <div className="btn left" onClick={(e) => clickNext(e,false)}>
+        <div className="btn left" onClick={(e) => clickNext(e, false)}>
           <IconArrowLeft width="30" height="30"></IconArrowLeft>
         </div>
-        <div className="btn right" onClick={(e) => clickNext(e,true)}>
+        <div className="btn right" onClick={(e) => clickNext(e, true)}>
           <IconArrowRight width="30" height="30"></IconArrowRight>
         </div>
       </div>
@@ -73,7 +73,7 @@ const RoomItem = memo((props) => {
   }
 
   return (
-    <ItemWrapper verifyColor={itemData?.verify_info?.text_color || '#39576a'} itemWidth={itemWidth} onClick={e=>goDetail(itemData)}>
+    <ItemWrapper verifyColor={itemData?.verify_info?.text_color || '#39576a'} itemWidth={itemWidth} onClick={(e) => goDetail(itemData)}>
       <div className="inner">
         {itemData.picture_urls ? sliderElement : pictureElement}
         <div className="desc">{itemData.verify_info.messages.join(' . ')}</div>

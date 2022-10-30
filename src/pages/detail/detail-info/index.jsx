@@ -3,9 +3,7 @@ import React, { memo } from 'react'
 import { DetailInfoWrapper } from './style'
 
 const DetailInfo = memo((props) => {
-  return (
-    <DetailInfoWrapper>DetailInfo</DetailInfoWrapper>
-  )
+  return <DetailInfoWrapper>DetailInfo</DetailInfoWrapper>
 })
 
 DetailInfo.propTypes = {}
