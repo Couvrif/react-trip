@@ -13,7 +13,7 @@ const Indicator = memo((props) => {
     const selectEl = contentRef.current.children[selectIndex]
     const itemLeft = selectEl.offsetLeft
     const itemWidth = selectEl.clientWidth
-    const contentWidth = contentRef.current.ClientWidth
+    const contentWidth = contentRef.current.clientWidth
     const scrollWidth = contentRef.current.scrollWidth
 
     // 可滚动距离=元素距离左边的距离+自身一半的宽度-指示器一半的宽度
@@ -24,7 +24,6 @@ const Indicator = memo((props) => {
     const totalDistance = scrollWidth - contentWidth
 
     if (distance > totalDistance) distance = totalDistance
-
     contentRef.current.style.transform = `translate(${-distance}px)`
   }, [selectIndex])
   return (

@@ -11,13 +11,13 @@ import { ThemeProvider } from 'styled-components'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <Suspense fallback="loading">
-    <Provider store={store}>
+  <Provider store={store}>
+    <Suspense fallback="loading">
       <HashRouter>
         <ThemeProvider theme={theme}>
           <App />
         </ThemeProvider>
       </HashRouter>
-    </Provider>
-  </Suspense>
+    </Suspense>
+  </Provider>
 )

@@ -19,6 +19,7 @@ export const PictureBrowserWrapper = styled.div`
       cursor: pointer;
       top: 15px;
       right: 25px;
+      z-index: 9999;
     }
   }
 
@@ -84,7 +85,47 @@ export const PictureBrowserWrapper = styled.div`
   }
 
   .preview {
-    height: 100px;
+    margin: 15px auto 150px;
+    height: 120px;
+    
+    max-width: 105vh;
+    overflow: hidden;
+    .info{
+      font-size: 15px;
+      color: white;
+      .preview-desc{
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(${props => props.showBottom ? '0' : '100px'});
+        transition: transform 200ms ease;
+        .desc-right{
+          cursor: pointer;
+          z-index: 6999;
+        }
+      }
+      .preview-list{
+        margin: 13px -8px 0;
+        transform: translateY(${props => props.showBottom ? '0' : '120px'});
+        transition: transform 200ms ease;
+        .pre-item{
+          width: 120px;
+          height: 100%;
+          margin: 0 8px;
+          opacity: 0.5;
+          img{
+            width: 100%;
+            height: 80px;
+            transition: height 200ms ease;
+            cursor: pointer;
+          }
+        }
+
+        .activeImg{
+          opacity: 1;
+        }
+      }
+    }
+    
   }
 
   .helloBox {
