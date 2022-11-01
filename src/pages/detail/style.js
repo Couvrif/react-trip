@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const DetailWrapper = styled.div`
+  margin-top: 80px;
   position: relative;
   button {
     position: absolute;

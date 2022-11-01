@@ -13,7 +13,7 @@ export const HeaderRightWrapper = styled.div`
     justify-content: space-between;
 
     .btn {
-      color: ${(props) => props.theme.text.primaryColor};
+      color: ${(props) => props.theme.isOpacity ? 'white' : props.theme.text.primaryColor};
       font-size: 15px;
       padding: 12px 15px;
       border-radius: 22px;
@@ -21,7 +21,7 @@ export const HeaderRightWrapper = styled.div`
       box-sizing: content-box;
 
       &:hover {
-        background-color: #f5f5f5;
+        background-color: ${(props) => props.theme.isOpacity ? 'rgba(255,255,255,.2)' : '#f5f5f5'};
       }
     }
   }

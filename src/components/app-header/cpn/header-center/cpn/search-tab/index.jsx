@@ -4,15 +4,20 @@ import React, { memo, useState,forwardRef } from 'react'
 import { SearchTabWrapper } from './style'
 
 const SearchTab = forwardRef((props) => {
-    const {tabbarList,currentIndex}=props
-    const [currentTab, setCurrentTab] = useState(0)
+    const [curIndex,setCurIndex]=useState(0)
+    const { tabbarList, changeCurTab } = props
+    
+    const changeMyIndex = (index) => {
+        setCurIndex(index)
+        if(changeCurTab) changeCurTab(index)
+    }
 
   return (
       <SearchTabWrapper>
           {
               tabbarList?.map((item, index) => {
-                  return <div className={classNames('tabbar-item', { active: currentTab === index })}
-                      key={index} onClick={()=>setCurrentTab(index)}>{item.title}</div>
+                  return <div className={classNames('tabbar-item', { active: curIndex === index })}
+                      key={index} onClick={()=>changeMyIndex(index)}>{item.title}</div>
               })
           }
     </SearchTabWrapper>
@@ -21,8 +26,8 @@ const SearchTab = forwardRef((props) => {
 
 SearchTab.propTypes = {
     tabbarList: PropTypes.array,
-    changeCur: PropTypes.function,
-    
+    currentTab: PropTypes.number,
+    changeCurTab:PropTypes.func
 }
 
 export default SearchTab
