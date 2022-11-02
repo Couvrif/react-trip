@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React, { memo, useRef, useEffect, useState } from 'react'
 import { ScrollViewWrapper } from './style'
 import IconArrowLeft from '@/assets/svg/icon-arrow-left'

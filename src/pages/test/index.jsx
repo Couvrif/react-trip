@@ -9,6 +9,7 @@ import { TestWrapper } from './style'
 
 const Test = memo(() => {
   const list = [img1, img2, img3, img4, img5]
+  console.log(list);
 
   return (
     <TestWrapper>

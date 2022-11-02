@@ -1,8 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 const mainSlice = createSlice({
-    name: 'main',
-    initialState: {
-        
-    }
+  name: 'main',
+  initialState: {}
 })

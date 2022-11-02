@@ -1,5 +1,5 @@
 import RoomItem from '@/components/room-item'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React, { memo, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RoomWrapper } from './style'

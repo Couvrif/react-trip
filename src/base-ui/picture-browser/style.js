@@ -87,32 +87,32 @@ export const PictureBrowserWrapper = styled.div`
   .preview {
     margin: 15px auto 150px;
     height: 120px;
-    
+
     max-width: 105vh;
     overflow: hidden;
-    .info{
+    .info {
       font-size: 15px;
       color: white;
-      .preview-desc{
+      .preview-desc {
         display: flex;
         justify-content: space-between;
-        transform: translateY(${props => props.showBottom ? '0' : '100px'});
+        transform: translateY(${(props) => (props.showBottom ? '0' : '100px')});
         transition: transform 200ms ease;
-        .desc-right{
+        .desc-right {
           cursor: pointer;
           z-index: 6999;
         }
       }
-      .preview-list{
+      .preview-list {
         margin: 13px -8px 0;
-        transform: translateY(${props => props.showBottom ? '0' : '120px'});
+        transform: translateY(${(props) => (props.showBottom ? '0' : '120px')});
         transition: transform 200ms ease;
-        .pre-item{
+        .pre-item {
           width: 120px;
           height: 100%;
           margin: 0 8px;
           opacity: 0.5;
-          img{
+          img {
             width: 100%;
             height: 80px;
             transition: height 200ms ease;
@@ -120,12 +120,11 @@ export const PictureBrowserWrapper = styled.div`
           }
         }
 
-        .activeImg{
+        .activeImg {
           opacity: 1;
         }
       }
     }
-    
   }
 
   .helloBox {

@@ -37,18 +37,18 @@ export const HeaderCenterWrapper = styled.div`
       background-color: ${(props) => props.theme.color.primaryColor};
     }
 
-    .bar-enter{
-      transform: scale(2.85,1.37) translateY(58px);
+    .bar-enter {
+      transform: scale(2.85, 1.37) translateY(58px);
       opacity: 0;
     }
 
-    .bar-enter-active{
+    .bar-enter-active {
       transition: all 200ms ease;
-      transform: scale(1.0) translateY(0);
+      transform: scale(1) translateY(0);
       opacity: 1;
     }
 
-    .bar-exit{
+    .bar-exit {
       opacity: 0;
     }
 
@@ -56,38 +56,37 @@ export const HeaderCenterWrapper = styled.div`
       opacity: 0;
     }  */
 
-     .detail-enter{
-      transform: scale(0.35,0.72) translateY(-58px);
+    .detail-enter {
+      transform: scale(0.35, 0.72) translateY(-58px);
       opacity: 0;
     }
 
-    .detail-enter-active{
-      transform: scale(1.0) translateY(0);
+    .detail-enter-active {
+      transform: scale(1) translateY(0);
       opacity: 1;
       transition: all 300ms ease;
     }
 
-    .detail-exit{
-      transform:  scale(1.0) translateY(0);
+    .detail-exit {
+      transform: scale(1) translateY(0);
       opacity: 1;
     }
 
-    .detail-exit-active{
-      transform: scale(0.35,0.725) translateY(-58px);
+    .detail-exit-active {
+      transform: scale(0.35, 0.725) translateY(-58px);
       opacity: 0;
     }
   }
 
-  .search-tab{
+  .search-tab {
     position: relative;
     /* transform-origin: 50% 0; */
     /* overflow: hidden; */
-    .tab-bottom{
+    .tab-bottom {
       position: absolute;
       top: 60px;
       left: 50%;
       transform: translateX(-50%);
     }
   }
-
 `

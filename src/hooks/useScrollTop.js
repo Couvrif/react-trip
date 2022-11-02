@@ -4,6 +4,6 @@ import { useEffect } from 'react'
 export const useScrollTop = () => {
   const location = useLocation()
   useEffect(() => {
-    window.scrollTo(0,0)
-  },[location.pathname])
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 }

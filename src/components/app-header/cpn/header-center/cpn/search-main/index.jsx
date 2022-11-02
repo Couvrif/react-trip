@@ -5,11 +5,11 @@ import SearchTab from '../search-tab'
 import { SearchMainWrapper } from './style'
 
 const SearchMain = memo((props) => {
-    const [currentTab, setCurrentTab] = useState(0)
+  const [currentTab, setCurrentTab] = useState(0)
   return (
-      <SearchMainWrapper>
-          <SearchTab></SearchTab>
-          <SearchContent></SearchContent>
+    <SearchMainWrapper>
+      <SearchTab></SearchTab>
+      <SearchContent></SearchContent>
     </SearchMainWrapper>
   )
 })

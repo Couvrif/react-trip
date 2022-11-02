@@ -12,11 +12,11 @@ import { SwitchTransition, CSSTransition } from 'react-transition-group'
 import classNames from 'classnames'
 
 const PictureBrowser = memo((props) => {
-  const { closeBtn, pictureList,picIndex } = props
+  const { closeBtn, pictureList, picIndex } = props
 
   const [currentIndex, setCurrentIndex] = useState(picIndex ?? 0)
   const [isNext, setIsNext] = useState(false)
-  const [showBottom,setShowBottom]=useState(true)
+  const [showBottom, setShowBottom] = useState(true)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -26,7 +26,7 @@ const PictureBrowser = memo((props) => {
   }, [])
 
   const changeIndex = (isRight) => {
-    console.log(111,currentIndex)
+    console.log(111, currentIndex)
     let newIndex = isRight === 'true' ? currentIndex + 1 : currentIndex - 1
     if (newIndex >= pictureList.length) newIndex = 0
     else if (newIndex < 0) newIndex = pictureList.length - 1
@@ -63,25 +63,25 @@ const PictureBrowser = memo((props) => {
         </div>
       </div>
       <div className="preview">
-        <div className='info'>
-          <div className='preview-desc'>
-            <div className='desc-left'>{currentIndex + 1}/{pictureList.length}:room apartment图片{currentIndex + 1}</div>
-            <div className='desc-right' onClick={(e) => setShowBottom(!showBottom)}>
+        <div className="info">
+          <div className="preview-desc">
+            <div className="desc-left">
+              {currentIndex + 1}/{pictureList.length}:room apartment图片{currentIndex + 1}
+            </div>
+            <div className="desc-right" onClick={(e) => setShowBottom(!showBottom)}>
               {showBottom ? '隐藏' : '显示'}照片列表
               {showBottom ? <IconDownTriangle></IconDownTriangle> : <IconUptriangle></IconUptriangle>}
             </div>
           </div>
-          <div className='preview-list'>
+          <div className="preview-list">
             <Indicator selectIndex={currentIndex}>
-              {
-                pictureList.map((item, index) => {
-                  return (
-                    <div className={classNames('pre-item',{activeImg:currentIndex===index})} key={item}>
-                      <img src={item} alt="" onClick={(e)=>changeCurrent(index)}/>
-                    </div>
-                  )
-                })
-              }
+              {pictureList.map((item, index) => {
+                return (
+                  <div className={classNames('pre-item', { activeImg: currentIndex === index })} key={item}>
+                    <img src={item} alt="" onClick={(e) => changeCurrent(index)} />
+                  </div>
+                )
+              })}
             </Indicator>
           </div>
         </div>
@@ -97,7 +97,7 @@ const PictureBrowser = memo((props) => {
 PictureBrowser.propTypes = {
   closeBtn: PropTypes.func,
   pictureList: PropTypes.array,
-  picIndex:PropTypes.number
+  picIndex: PropTypes.number
 }
 
 export default PictureBrowser

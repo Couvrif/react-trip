@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React, { memo, useState } from 'react'
 import { FilterWrapper } from './style'
 import filterData from '@/assets/data/filter_data.json'
